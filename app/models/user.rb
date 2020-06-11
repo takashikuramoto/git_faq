@@ -5,6 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  has_many :questions, ->{ order("created_at DESC") }
+  has_many :answered_questions, through: :answers, source: :question
 
   def name
     "#{family_name} #{first_name}"

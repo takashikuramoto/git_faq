@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @questions = @user.answered_questions.uniq
   end
 
+  def index
+    @question = Question.new
+  end
+  
   def edit
   end
 
