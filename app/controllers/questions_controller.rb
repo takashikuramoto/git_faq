@@ -4,9 +4,16 @@ class QuestionsController < ApplicationController
     redirect_to :root and return
   end
 
+ 
+  
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers
+    
+  end
+  
+  def search
+    @question = Question.where('text LIKE(?)', "%#{params[:keyword]}%").limit(20)
   end
 
   private

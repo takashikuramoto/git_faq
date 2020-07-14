@@ -41,13 +41,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_113550) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "feed_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "content_id"
-    t.string "content_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.text "text"

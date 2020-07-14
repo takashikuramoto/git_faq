@@ -1,17 +1,37 @@
-<div class="posting_form top_content">
+  
+  <% if user_signed_in? %>
+  <p><a href='/questions/search'>検索する</a></p>
+　
+
+
+    
+  
+  
+</ul>
+  
+  <div class="posting_form top_content">
     <header class="posting_header">
-      
+     
       <div class="posting_user_info user_info">
-       
+        <%= current_user.name %>
       </div>
     </header>
-    <% if user_signed_in? %> 
+    
     <%= form_for(@question) do |f| %>
-      <%= f.text_field :text %>
+      <%= f.text_field :text%>
       <%= f.submit "質問する" %>
+    </div>
     <% end %>
-  </div>
-  <%= render partial: "questions/question", collection: @questions %>
+  　
+    
+  　<%= render @feed_contents_resource %>
+  　 <%= paginate(@feed_contents) %>
+  
+  
   <% else %>
-   <%= render partial: "questions/question", collection: @questions %>
+  <%= render @questions %>
+  <%= paginate(@questions) %>
   <% end %>
+  
+
+

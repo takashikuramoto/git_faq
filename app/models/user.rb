@@ -7,7 +7,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :questions, ->{ order("created_at DESC") }
+  has_many :answers, ->{ order("updated_at DESC") }
   has_many :answered_questions, through: :answers, source: :question
+  has_many :feed_contents, ->{ order("updated_at DESC") }
 
   def name
     "#{family_name} #{first_name}"
