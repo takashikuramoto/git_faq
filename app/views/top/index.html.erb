@@ -1,40 +1,12 @@
-  
-  <% if user_signed_in? %>
-  <%= form_tag('/questions/search', method: :get) do %>
-  <input class="search__query" name="keyword" placeholder="質問で検索" type="text" ><button class="row form" title="検索" type="submit"><i class="icon-search"></i></button></input>
-  <% end %>
-　
+<% if user_signed_in? %>
+　はよ金払え！！！
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="B3EX9DC7YQCL6">
+<input type="image" src="https://www.paypalobjects.com/ja_JP/JP/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - オンラインでより安全・簡単にお支払い">
+<img alt="" border="0" src="https://www.paypalobjects.com/ja_JP/i/scr/pixel.gif" width="1" height="1">
+</form>
 
-
-    
-  
-  
-</ul>
-  
-  <div class="posting_form top_content">
-    <header class="posting_header">
-     
-      <div class="posting_user_info user_info">
-        <%= current_user.name %>
-      </div>
-    </header>
-    
-    <%= form_for(@question) do |f| %>
-      <%= f.text_field :text%>
-      <%= f.submit "質問する" %>
-    </div>
-    <% end %>
-  　
-    
-  　<% @questions.each do |question| %>
-  　<%= render @questions %>
-  　 <% end %>
-  
-  
   <% else %>
-  <%= render @questions %>
-  <%= paginate(@questions) %>
+ サロンの紹介ページ
   <% end %>
-  
-
-
