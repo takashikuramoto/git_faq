@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   
   root to: "top#index"
-  get  'questions/search'  =>  'questions#search'
+ 
   
   resources :users, only: [:show,:edit,:update]
   
