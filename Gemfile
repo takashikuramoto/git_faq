@@ -67,5 +67,9 @@ gem 'twitter-bootstrap-rails'
 gem 'bootstrap-material-design', '0.1.4'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+# Use ActiveStorage variant
 gem 'mini_magick'
 gem 'kaminari'
+group :production do
+  gem 'rails_12factor'
+end

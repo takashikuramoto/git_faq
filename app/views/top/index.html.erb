@@ -1,6 +1,8 @@
   
   <% if user_signed_in? %>
-  <p><a href='/questions/search'>検索する</a></p>
+  <%= form_tag('/questions/search', method: :get) do %>
+  <input class="search__query" name="keyword" placeholder="質問で検索" type="text" ><button class="row form" title="検索" type="submit"><i class="icon-search"></i></button></input>
+  <% end %>
 　
 
 
@@ -24,8 +26,9 @@
     <% end %>
   　
     
-  　<%= render @feed_contents_resource %>
-  　 <%= paginate(@feed_contents) %>
+  　<% @questions.each do |question| %>
+  　<%= render @questions %>
+  　 <% end %>
   
   
   <% else %>
